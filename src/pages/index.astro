@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { HeroSlider } from '../components/HeroSlider';
+import { ProductSlider } from '../components/ProductSlider';
+import allMachines from '../data/machines.json';
+---
+
+<BaseLayout>
+  <!-- 1. INTERACTIVE BROCHURE COVER HERO SLIDER -->
+  <HeroSlider client:load />
+
+  <!-- 2. 9 RANDOM FEATURED PRODUCTS -->
+  <section id="destacados" class="py-10 sm:py-14">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <ProductSlider client:load machines={allMachines} />
+    </div>
+  </section>
+</BaseLayout>

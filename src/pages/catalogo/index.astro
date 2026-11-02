@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { CatalogExplorer } from '../../components/CatalogExplorer';
+import { SITE_CONFIG } from '../../config/site';
+import machines from '../../data/machines.json';
+---
+
+<BaseLayout
+  title={`Catálogo · ${SITE_CONFIG.name}`}
+  description="Catálogo interactivo de maquinaria profesional Brasilife Fitness."
+>
+  <section class="pt-6 pb-12 sm:pt-8 sm:pb-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <CatalogExplorer client:load machines={machines} />
+    </div>
+  </section>
+</BaseLayout>

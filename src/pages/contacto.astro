@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_CONFIG } from '../config/site';
+---
+
+<BaseLayout
+  title={`Contacto y Cotizaciones · ${SITE_CONFIG.name}`}
+  description="Cotiza el equipamiento de tu gimnasio en Lima y todo el Perú con Brasilife Fitness."
+>
+  <section class="py-8 sm:py-16 lg:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
+        <!-- Left Dark Visual Card -->
+        <div class="lg:col-span-5 rounded-2xl sm:rounded-3xl bg-zinc-950 p-6 sm:p-10 text-white space-y-5 sm:space-y-6 shadow-xl">
+          <span class="inline-block rounded-full bg-orange-500/20 px-3.5 py-1 text-[11px] sm:text-xs font-medium text-orange-400">
+            Lima, Perú · Envíos a Nivel Nacional
+          </span>
+          <h1 class="font-display text-2xl sm:text-3xl font-bold tracking-tight leading-tight">
+            Equipa tu gimnasio con <span class="text-orange-500">Brasilife.</span>
+          </h1>
+          <p class="text-xs sm:text-sm font-normal text-zinc-400">
+            Fabricación directa de máquinas profesionales y residenciales con colores personalizados.
+          </p>
+
+          <div class="space-y-2.5 sm:space-y-3 pt-1">
+            <a
+              href={`https://wa.me/${SITE_CONFIG.whatsappNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block rounded-2xl bg-white/5 p-3.5 sm:p-4 ring-1 ring-white/10 hover:bg-white/10 transition"
+            >
+              <span class="block text-[10px] font-medium uppercase tracking-wider text-zinc-400">
+                WhatsApp / Teléfono Ventas
+              </span>
+              <span class="mt-0.5 block font-display text-base sm:text-lg font-semibold text-orange-400">
+                {SITE_CONFIG.whatsappDisplay}
+              </span>
+            </a>
+
+            <div class="block rounded-2xl bg-white/5 p-3.5 sm:p-4 ring-1 ring-white/10">
+              <span class="block text-[10px] font-medium uppercase tracking-wider text-zinc-400">
+                Dirección Oficial (Lima)
+              </span>
+              <span class="mt-0.5 block font-display text-sm sm:text-base font-medium text-white">
+                {SITE_CONFIG.location}
+              </span>
+            </div>
+
+            <a
+              href={`mailto:${SITE_CONFIG.salesEmail}`}
+              class="block rounded-2xl bg-white/5 p-3.5 sm:p-4 ring-1 ring-white/10 hover:bg-white/10 transition"
+            >
+              <span class="block text-[10px] font-medium uppercase tracking-wider text-zinc-400">
+                Correo Electrónico
+              </span>
+              <span class="mt-0.5 block font-display text-sm sm:text-base font-medium text-white truncate">
+                {SITE_CONFIG.salesEmail}
+              </span>
+            </a>
+
+            <a
+              href={SITE_CONFIG.facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block rounded-2xl bg-white/5 p-3.5 sm:p-4 ring-1 ring-white/10 hover:bg-white/10 transition"
+            >
+              <span class="block text-[10px] font-medium uppercase tracking-wider text-zinc-400">
+                Web & Redes Oficiales
+              </span>
+              <span class="mt-0.5 block font-display text-sm sm:text-base font-medium text-white truncate">
+                www.brasilifefitness.com ↗
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Clean Minimal Form -->
+        <div class="lg:col-span-7 rounded-2xl sm:rounded-3xl border border-zinc-200/80 bg-white p-6 sm:p-10 shadow-sm">
+          <h2 class="font-display text-xl sm:text-2xl font-bold text-zinc-950">
+            Solicitar Cotización
+          </h2>
+
+          <form id="b2b-contact-form" class="mt-5 sm:mt-6 space-y-3.5 sm:space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Tu nombre *"
+                class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 sm:py-3.5 text-sm text-zinc-900 focus:border-orange-500 focus:bg-white focus:outline-none"
+              />
+              <input
+                type="text"
+                name="company"
+                required
+                placeholder="Gimnasio / Proyecto *"
+                class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 sm:py-3.5 text-sm text-zinc-900 focus:border-orange-500 focus:bg-white focus:outline-none"
+              />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+              <select
+                name="area"
+                class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 sm:py-3.5 text-sm text-zinc-900 focus:border-orange-500 focus:bg-white focus:outline-none"
+              >
+                <option value="Gimnasio Comercial">Gimnasio Comercial</option>
+                <option value="Apertura de Nuevo Gimnasio">Nuevo Gimnasio</option>
+                <option value="Uso Residencial / Condominio">Residencial / Condominio</option>
+                <option value="Renovación de Máquinas">Renovación de Máquinas</option>
+              </select>
+
+              <input
+                type="text"
+                name="city"
+                required
+                placeholder="Distrito / Provincia (Perú) *"
+                class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 sm:py-3.5 text-sm text-zinc-900 focus:border-orange-500 focus:bg-white focus:outline-none"
+              />
+            </div>
+
+            <textarea
+              name="details"
+              rows="3"
+              placeholder="¿Qué modelos buscas? (Ej. Hombros Hammer, Prensa 45°, Crossover, Multifuncional...)"
+              class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 sm:py-3.5 text-sm text-zinc-900 focus:border-orange-500 focus:bg-white focus:outline-none"
+            ></textarea>
+
+            <button
+              type="submit"
+              class="w-full rounded-full bg-gradient-to-r from-orange-600 to-amber-500 px-6 py-3.5 sm:py-4 text-sm font-bold text-white shadow-md shadow-orange-600/20 hover:from-orange-500 hover:to-amber-400 transition cursor-pointer"
+            >
+              Enviar Cotización a WhatsApp →
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsappNumber: SITE_CONFIG.whatsappNumber, siteName: SITE_CONFIG.name }}>
+    const form = document.getElementById('b2b-contact-form');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const name = formData.get('name') || '';
+      const company = formData.get('company') || '';
+      const area = formData.get('area') || '';
+      const city = formData.get('city') || '';
+      const details = formData.get('details') || '';
+
+      const message = [
+        `Hola *${siteName}*, deseo cotizar equipamiento:`,
+        `• *Nombre:* ${name}`,
+        `• *Gimnasio / Uso:* ${company} (${area})`,
+        `• *Ciudad / Provincia:* ${city}`,
+        details ? `• *Máquinas:* ${details}` : '',
+      ]
+        .filter(Boolean)
+        .join('\n');
+
+      window.open(
+        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
+        '_blank',
+        'noopener,noreferrer'
+      );
+    });
+  </script>
+</BaseLayout>
