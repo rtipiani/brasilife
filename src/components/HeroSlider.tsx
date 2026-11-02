@@ -230,7 +230,7 @@ export function HeroSlider() {
 
   return (
     <div
-      className="relative w-full overflow-hidden bg-gradient-to-b from-white via-zinc-50 to-zinc-100/90 text-zinc-900 select-none border-b border-zinc-200"
+      className="relative w-full min-h-[calc(100svh-9.5rem)] lg:h-[calc(100vh-8.5rem)] flex flex-col justify-between overflow-hidden bg-gradient-to-b from-white via-zinc-50 to-zinc-100/90 text-zinc-900 select-none border-b border-zinc-200"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
@@ -246,103 +246,103 @@ export function HeroSlider() {
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-zinc-50/85" />
       </div>
 
-      {/* Main Content Container: Clean fluid layout for all devices */}
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col justify-between px-4 py-8 sm:py-10 lg:py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-          {/* Left Column: Clean Category Badge, Headline & Direct CTAs */}
-          <div className="lg:col-span-7 space-y-4 sm:space-y-5">
-            <div className="inline-flex max-w-full items-center overflow-hidden rounded-lg shadow-xs">
-              <span className="bg-orange-600 px-2.5 sm:px-3.5 py-1 sm:py-1.5 font-display text-[10px] sm:text-xs md:text-sm font-bold tracking-wider text-white uppercase whitespace-nowrap">
+      {/* Main Content Container: Clean fluid layout scaled with vh and reduced font sizes on small screens */}
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between px-3.5 py-[2vh] sm:px-6 lg:px-8">
+        <div className="my-auto grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-10 items-center">
+          {/* Left Column: Category Ribbon, Reduced Headline & Compact CTAs */}
+          <div className="lg:col-span-7 space-y-[1.3vh] sm:space-y-4">
+            <div className="inline-flex max-w-full items-center overflow-hidden rounded-md shadow-2xs">
+              <span className="bg-orange-600 px-2 sm:px-3 py-0.5 sm:py-1 font-display text-[9px] sm:text-xs md:text-sm font-bold tracking-wider text-white uppercase whitespace-nowrap">
                 {slide.ribbonText}
               </span>
-              <span className="bg-zinc-900 px-2.5 sm:px-3.5 py-1 sm:py-1.5 font-display text-[10px] sm:text-xs md:text-sm font-semibold tracking-wider text-white uppercase whitespace-nowrap truncate">
+              <span className="bg-zinc-900 px-2 sm:px-3 py-0.5 sm:py-1 font-display text-[9px] sm:text-xs md:text-sm font-semibold tracking-wider text-white uppercase whitespace-nowrap truncate">
                 {slide.subRibbonText}
               </span>
             </div>
 
-            <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15] text-zinc-900">
+            <h1 className="font-display text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.12] text-zinc-900">
               {slide.titleLine1}{' '}
               <span className="text-orange-600 block sm:inline">
                 {slide.titleHighlight}
               </span>
             </h1>
 
-            <p className="text-xs sm:text-base font-normal text-zinc-600 max-w-xl leading-relaxed">
+            <p className="text-[11px] sm:text-xs md:text-sm lg:text-base font-normal text-zinc-600 max-w-xl leading-relaxed line-clamp-2 sm:line-clamp-none">
               {slide.subtitle}
             </p>
 
-            {/* Key Factory Specs Pills */}
-            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-medium text-zinc-700">
-              <span className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 bg-white px-2.5 sm:px-3 py-1 sm:py-1.5 shadow-2xs">
-                <ShieldCheck className="h-3.5 w-3.5 text-orange-600 shrink-0" />
-                Tubo estructural 3.0–3.5 mm
+            {/* Key Factory Specs Pills (Compact inline) */}
+            <div className="flex flex-wrap items-center gap-1.5 text-[10px] sm:text-xs font-medium text-zinc-700">
+              <span className="inline-flex items-center gap-1 rounded-md border border-zinc-200 bg-white px-2 py-0.5 sm:px-2.5 sm:py-1 shadow-2xs">
+                <ShieldCheck className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-orange-600 shrink-0" />
+                Tubo pesado 3.0–3.5 mm
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 bg-white px-2.5 sm:px-3 py-1 sm:py-1.5 shadow-2xs">
-                Pintura electrostática al horno
+              <span className="inline-flex items-center gap-1 rounded-md border border-zinc-200 bg-white px-2 py-0.5 sm:px-2.5 sm:py-1 shadow-2xs">
+                Pintura al horno
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 bg-white px-2.5 sm:px-3 py-1 sm:py-1.5 shadow-2xs">
+              <span className="inline-flex items-center gap-1 rounded-md border border-zinc-200 bg-white px-2 py-0.5 sm:px-2.5 sm:py-1 shadow-2xs">
                 Envíos a todo el Perú
               </span>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-1">
+            {/* Action Buttons: Side-by-side compact on small screens */}
+            <div className="flex flex-row items-center gap-2 pt-0.5 sm:pt-1">
               <a
                 href={slide.ctaPrimaryHref}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-orange-600 px-5 sm:px-6 py-3 text-xs sm:text-sm font-semibold text-white shadow-md transition hover:bg-orange-500"
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 rounded-full bg-orange-600 px-3.5 sm:px-6 py-2 sm:py-2.5 text-[11px] sm:text-xs md:text-sm font-semibold text-white shadow-sm transition hover:bg-orange-500 text-center whitespace-nowrap"
               >
                 <span>{slide.ctaPrimaryText}</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-3.5 w-3.5 shrink-0" />
               </a>
 
               <a
                 href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(slide.ctaWhatsappMsg)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-zinc-900 px-5 sm:px-6 py-3 text-xs sm:text-sm font-semibold text-white shadow-sm transition hover:bg-zinc-800"
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 rounded-full bg-zinc-900 px-3.5 sm:px-6 py-2 sm:py-2.5 text-[11px] sm:text-xs md:text-sm font-semibold text-white shadow-xs transition hover:bg-zinc-800 text-center whitespace-nowrap"
               >
-                <svg className="h-4 w-4 fill-current shrink-0 text-emerald-400" viewBox="0 0 24 24" aria-hidden="true">
+                <svg className="h-3.5 w-3.5 fill-current shrink-0 text-emerald-400" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M20.52 3.48A11.82 11.82 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.15 1.6 5.95L0 24l6.32-1.66a11.86 11.86 0 0 0 5.74 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.42ZM12.07 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.75.98 1-3.65-.24-.38a9.85 9.85 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.13 1.03 7 2.9a9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.89-9.89 9.89Zm5.42-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35Z" />
                 </svg>
-                <span>Cotizar por WhatsApp</span>
+                <span>WhatsApp</span>
               </a>
             </div>
           </div>
 
           {/* Right Column: Clean 2x2 Product Showcase Card */}
           <div className="lg:col-span-5">
-            <div className="rounded-2xl bg-white text-zinc-900 p-4 sm:p-[2.2vh] shadow-xl border border-zinc-200/90 space-y-[1.5vh]">
+            <div className="rounded-xl sm:rounded-2xl bg-white text-zinc-900 p-2.5 sm:p-4 shadow-md sm:shadow-xl border border-zinc-200/90 space-y-2 sm:space-y-[1.5vh]">
               {/* Clean Card Header */}
-              <div className="flex items-center justify-between gap-2 border-b border-zinc-100 pb-[1vh]">
-                <div className="flex items-center gap-2">
-                  <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-zinc-900">
+              <div className="flex items-center justify-between gap-2 border-b border-zinc-100 pb-1.5 sm:pb-[1vh]">
+                <div className="flex items-center gap-1.5">
+                  <span className="font-display text-sm sm:text-lg lg:text-xl font-bold tracking-tight text-zinc-900">
                     Brasi<span className="text-orange-600">life</span>
                   </span>
-                  <span className="text-xs font-medium text-zinc-400">
+                  <span className="text-[10px] sm:text-xs font-medium text-zinc-400">
                     Fitness
                   </span>
                 </div>
-                <span className="rounded-full bg-zinc-900 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">
+                <span className="rounded-full bg-zinc-900 px-2 sm:px-3 py-0.5 text-[9px] sm:text-[11px] font-semibold uppercase tracking-wider text-white">
                   {slide.cardBadgeText}
                 </span>
               </div>
 
               {/* 4 Studio Machines Preview from Current Slide (2x2 Grid) */}
-              <div className="grid grid-cols-2 gap-2 sm:gap-2.5">
+              <div className="grid grid-cols-2 gap-1.5 sm:gap-2.5">
                 {slide.previewMachines.map((pm) => (
                   <a
                     key={pm.href}
                     href={pm.href}
-                    className="group flex flex-col items-center justify-between rounded-xl border border-zinc-200/80 bg-white p-2 transition hover:border-orange-500 hover:shadow-xs"
+                    className="group flex flex-col items-center justify-between rounded-lg sm:rounded-xl border border-zinc-200/80 bg-white p-1.5 sm:p-2 transition hover:border-orange-500 hover:shadow-xs"
                   >
-                    <div className="flex h-20 sm:h-28 lg:h-[13.5vh] min-h-[75px] max-h-[125px] w-full items-center justify-center overflow-hidden bg-white">
+                    <div className="flex h-16 sm:h-24 lg:h-[13.5vh] min-h-[60px] max-h-[125px] w-full items-center justify-center overflow-hidden bg-white">
                       <img
                         src={pm.img}
                         alt={`${pm.name1} ${pm.name2}`}
                         className="max-h-full max-w-full object-contain transition group-hover:scale-105"
                       />
                     </div>
-                    <div className="mt-1 text-center font-display text-[10px] sm:text-[11px] font-bold uppercase leading-tight">
+                    <div className="mt-0.5 sm:mt-1 text-center font-display text-[9px] sm:text-[10px] lg:text-[11px] font-bold uppercase leading-tight">
                       <span className="text-zinc-800">{pm.name1}</span>{' '}
                       <span className="text-orange-600">{pm.name2}</span>
                     </div>
@@ -350,9 +350,9 @@ export function HeroSlider() {
                 ))}
               </div>
 
-              <div className="flex items-center justify-between text-xs text-zinc-500 pt-[0.6vh] border-t border-zinc-100">
+              <div className="flex items-center justify-between text-[10px] sm:text-xs text-zinc-500 pt-1 sm:pt-[0.6vh] border-t border-zinc-100">
                 <span className="font-medium text-zinc-600">
-                  5 líneas · 33 equipos en catálogo
+                  5 líneas · 33 equipos
                 </span>
                 <a
                   href={slide.ctaPrimaryHref}
@@ -366,8 +366,8 @@ export function HeroSlider() {
         </div>
 
         {/* Bottom Slider Navigation Bar */}
-        <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-zinc-200/80 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
+        <div className="mt-3 sm:mt-6 pt-2.5 sm:pt-4 border-t border-zinc-200/80 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             {SLIDES.map((s, idx) => {
               const active = idx === current;
               return (
@@ -376,30 +376,30 @@ export function HeroSlider() {
                   type="button"
                   onClick={() => setCurrent(idx)}
                   aria-label={`Slide ${idx + 1}`}
-                  className={`h-2 rounded-full transition-all cursor-pointer ${
-                    active ? 'w-8 bg-orange-600' : 'w-2 bg-zinc-300 hover:bg-zinc-400'
+                  className={`h-1.5 sm:h-2 rounded-full transition-all cursor-pointer ${
+                    active ? 'w-6 sm:w-8 bg-orange-600' : 'w-1.5 sm:w-2 bg-zinc-300 hover:bg-zinc-400'
                   }`}
                 />
               );
             })}
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             <button
               type="button"
               onClick={prevSlide}
               aria-label="Anterior"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-800 shadow-2xs transition hover:border-orange-600 hover:bg-orange-600 hover:text-white cursor-pointer"
+              className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-800 shadow-2xs transition hover:border-orange-600 hover:bg-orange-600 hover:text-white cursor-pointer"
             >
-              <ChevronLeft className="h-4 w-4" />
+              <ChevronLeft className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             </button>
             <button
               type="button"
               onClick={nextSlide}
               aria-label="Siguiente"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-800 shadow-2xs transition hover:border-orange-600 hover:bg-orange-600 hover:text-white cursor-pointer"
+              className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-800 shadow-2xs transition hover:border-orange-600 hover:bg-orange-600 hover:text-white cursor-pointer"
             >
-              <ChevronRight className="h-4 w-4" />
+              <ChevronRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             </button>
           </div>
         </div>

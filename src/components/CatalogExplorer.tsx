@@ -178,14 +178,14 @@ export function CatalogExplorer({ machines }: Props) {
           </button>
         </div>
       ) : (
-        <div className="relative overflow-hidden rounded-3xl border border-zinc-200 bg-white p-4 sm:p-8 shadow-md">
+        <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-zinc-200 bg-white p-3.5 sm:p-8 shadow-md">
           {/* Clean Header Banner */}
-          <div className="relative mb-6 sm:mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl bg-zinc-900 px-5 py-3.5 text-white border-l-8 border-orange-600">
+          <div className="relative mb-5 sm:mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 rounded-xl sm:rounded-2xl bg-zinc-900 px-4 sm:px-5 py-3 sm:py-3.5 text-white border-l-6 sm:border-l-8 border-orange-600">
             <div>
               <span className="block text-[9px] sm:text-[10px] font-medium uppercase tracking-widest text-orange-400">
                 Catálogo de Equipos ({filteredMachines.length})
               </span>
-              <h2 className="font-display text-base sm:text-lg font-bold uppercase tracking-wider text-white">
+              <h2 className="font-display text-sm sm:text-base md:text-lg font-bold uppercase tracking-wider text-white">
                 {activeCategoryName}
               </h2>
             </div>
@@ -193,7 +193,7 @@ export function CatalogExplorer({ machines }: Props) {
             <button
               type="button"
               onClick={handleAddFilteredCategory}
-              className="inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-xs font-semibold text-zinc-950 shadow-xs hover:bg-orange-50 transition cursor-pointer self-start sm:self-center"
+              className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold text-zinc-950 shadow-xs hover:bg-orange-50 transition cursor-pointer self-start sm:self-center"
             >
               <Plus className="h-3.5 w-3.5 text-orange-600" />
               <span>Cotizar esta línea ({filteredMachines.length})</span>
@@ -201,7 +201,7 @@ export function CatalogExplorer({ machines }: Props) {
           </div>
 
           {/* Brochure Studio Grid on Pure White */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
             {filteredMachines.map((machine) => (
               <article
                 key={machine.id}

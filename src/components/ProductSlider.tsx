@@ -51,15 +51,15 @@ export function ProductSlider({ machines }: Props) {
     <div className="space-y-8">
       {/* Clean Centered Header: Equipos Destacados */}
       <div className="flex items-center justify-center text-center">
-        <div className="relative overflow-hidden rounded-xl bg-zinc-900 px-6 py-3 text-white shadow-sm border-b-4 border-orange-600">
-          <h2 className="font-display text-xl sm:text-2xl font-bold uppercase tracking-wide text-white">
+        <div className="relative overflow-hidden rounded-xl bg-zinc-900 px-4 sm:px-6 py-2 sm:py-3 text-white shadow-sm border-b-4 border-orange-600">
+          <h2 className="font-display text-base sm:text-xl md:text-2xl font-bold uppercase tracking-wide text-white">
             Equipos <span className="text-orange-500">Destacados</span>
           </h2>
         </div>
       </div>
 
       {/* 3x3 Grid of 9 Random Featured Products on Every Page Reload */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 min-h-[600px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 min-h-0 sm:min-h-[600px]">
         {featuredNine.map((machine) => (
           <article
             key={machine.id}
