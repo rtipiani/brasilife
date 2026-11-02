@@ -27,35 +27,18 @@ const relatedMachines = allMachines
   title={`${machine.name} [${machine.code}] · ${SITE_CONFIG.name}`}
   description={machine.shortDescription}
 >
-  <section class="pt-6 pb-12 sm:pt-8 sm:pb-16">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
-      <!-- Header Banner -->
-      <div class="relative overflow-hidden rounded-2xl bg-zinc-900 p-5 sm:px-7 sm:py-5 text-white border-l-8 border-orange-600 flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div class="relative z-10">
-          <div class="flex flex-wrap items-center gap-2 text-xs font-medium text-zinc-400 mb-1.5">
-            <a href="/catalogo" class="hover:text-white transition">← Catálogo de Equipos</a>
-            <span>/</span>
-            <span class="text-orange-400">{categoryInfo?.shortName}</span>
-            <span>/</span>
-            <span class="font-mono text-zinc-200">{machine.code}</span>
-          </div>
-
-          <h1 class="font-display text-2xl sm:text-3xl font-bold uppercase tracking-wide">
-            <span class="text-white">{machine.titleLine1}</span>{' '}
-            <span class="text-orange-500">{machine.titleLine2}</span>
-          </h1>
-        </div>
-
-        <div class="relative z-10 flex flex-wrap gap-1.5">
-          {
-            machine.muscleGroups.map((muscle) => (
-              <span class="rounded-full bg-zinc-950/80 border border-white/15 px-3 py-1 text-xs font-medium text-orange-300">
-                {muscle}
-              </span>
-            ))
-          }
-        </div>
-      </div>
+  <section class="pt-4 pb-12 sm:pt-6 sm:pb-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4 sm:space-y-6">
+      <!-- Clean Minimal Breadcrumb Navigation -->
+      <nav class="flex items-center gap-1.5 text-xs font-medium text-zinc-500 py-1">
+        <a href="/catalogo" class="hover:text-orange-600 transition">Catálogo</a>
+        <span>/</span>
+        <a href={`/catalogo?categoria=${machine.category}`} class="text-zinc-600 hover:text-orange-600 transition">
+          {categoryInfo?.shortName}
+        </a>
+        <span>/</span>
+        <span class="text-zinc-900 font-semibold truncate">{machine.name}</span>
+      </nav>
 
       <!-- Visual Preview & Multi-Product Quote Actions -->
       <ProductDetailConfigurator
@@ -64,7 +47,11 @@ const relatedMachines = allMachines
         code={machine.code}
         slug={machine.slug}
         name={machine.name}
+        titleLine1={machine.titleLine1}
+        titleLine2={machine.titleLine2}
         category={machine.category}
+        categoryName={categoryInfo?.shortName || ''}
+        muscleGroups={machine.muscleGroups}
         imageType={machine.imageType}
         imageUrl={machine.imageUrl}
         fullDescription={machine.fullDescription}

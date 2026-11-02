@@ -95,7 +95,11 @@ interface DetailConfiguratorProps {
   code: string;
   slug: string;
   name: string;
+  titleLine1?: string;
+  titleLine2?: string;
   category: string;
+  categoryName?: string;
+  muscleGroups?: string[];
   imageType: string;
   imageUrl?: string;
   fullDescription?: string;
@@ -107,7 +111,11 @@ export function ProductDetailConfigurator({
   code,
   slug,
   name,
+  titleLine1,
+  titleLine2,
   category,
+  categoryName,
+  muscleGroups = [],
   imageType,
   imageUrl,
   fullDescription,
@@ -146,24 +154,15 @@ export function ProductDetailConfigurator({
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-      {/* Left: Large Studio Machine Preview */}
+      {/* Left: Clean Studio Machine Preview (Uncluttered) */}
       <div className="lg:col-span-7">
-        <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-zinc-200 bg-white p-4 sm:p-6 shadow-xs">
-          <div className="relative z-10 flex items-center justify-between gap-2 mb-3">
-            <span className="rounded-md bg-zinc-900 px-2.5 py-1 font-mono text-xs font-medium text-orange-400">
-              {code}
-            </span>
-            <span className="text-xs font-medium text-zinc-400">
-              Fabricación Nacional · Uso Comercial Pesado
-            </span>
-          </div>
-
-          <div className="relative aspect-4/3 sm:aspect-16/11 w-full overflow-hidden rounded-xl sm:rounded-2xl bg-white flex items-center justify-center border border-zinc-100">
+        <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-zinc-200 bg-white p-4 sm:p-8 shadow-xs">
+          <div className="relative aspect-4/3 sm:aspect-16/11 w-full overflow-hidden rounded-xl bg-white flex items-center justify-center">
             <MachineBlueprintIllustration
               imageType={imageType}
               code={code}
               imageUrl={imageUrl}
-              className="w-full h-full max-h-96"
+              className="w-full h-full max-h-96 object-contain"
             />
           </div>
         </div>
@@ -173,14 +172,37 @@ export function ProductDetailConfigurator({
       <div className="lg:col-span-5">
         <div className="rounded-2xl sm:rounded-3xl border border-zinc-200 bg-white p-5 sm:p-7 shadow-xs space-y-5">
           <div>
-            <span className="inline-block rounded bg-orange-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-orange-700 mb-2">
-              Especificaciones del Equipo
-            </span>
-            <h2 className="font-display text-lg sm:text-xl font-bold text-zinc-900">
-              {name}
-            </h2>
+            <div className="flex items-center gap-2 mb-2.5">
+              <span className="rounded-md bg-zinc-900 px-2.5 py-1 font-mono text-xs font-semibold text-orange-400">
+                {code}
+              </span>
+              {categoryName && (
+                <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">
+                  {categoryName}
+                </span>
+              )}
+            </div>
+
+            <h1 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 leading-tight">
+              {titleLine1 || name}{' '}
+              {titleLine2 && <span className="text-orange-600">{titleLine2}</span>}
+            </h1>
+
+            {muscleGroups.length > 0 && (
+              <div className="flex flex-wrap gap-1.5 mt-3">
+                {muscleGroups.map((muscle) => (
+                  <span
+                    key={muscle}
+                    className="rounded-full bg-zinc-100 border border-zinc-200/80 px-2.5 py-0.5 text-xs font-medium text-zinc-700"
+                  >
+                    {muscle}
+                  </span>
+                ))}
+              </div>
+            )}
+
             {fullDescription && (
-              <p className="mt-2 text-xs sm:text-sm text-zinc-600 leading-relaxed">
+              <p className="mt-3 text-xs sm:text-sm text-zinc-600 leading-relaxed">
                 {fullDescription}
               </p>
             )}
