@@ -252,11 +252,11 @@ export function CatalogExplorer({ machines }: Props) {
                     </p>
                   </div>
 
-                  {/* Quick Add Button */}
-                  <div className="mt-4 pt-3 border-t border-zinc-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 sm:gap-2.5">
+                  {/* Buttons: Stacked on all screens so they never break */}
+                  <div className="mt-3.5 pt-3 border-t border-zinc-100 flex flex-col gap-2 w-full">
                     <a
                       href={`/catalogo/${machine.slug}`}
-                      className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-zinc-800 hover:border-orange-500 hover:text-orange-600 transition text-center"
+                      className="w-full inline-flex items-center justify-center rounded-full border border-zinc-200 bg-zinc-50 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-zinc-800 hover:border-orange-500 hover:text-orange-600 transition text-center"
                     >
                       Ver Ficha →
                     </a>
@@ -269,6 +269,7 @@ export function CatalogExplorer({ machines }: Props) {
                       category={machine.category}
                       imageUrl={machine.imageUrl}
                       showColorDots={false}
+                      className="w-full"
                     />
                   </div>
                 </div>
