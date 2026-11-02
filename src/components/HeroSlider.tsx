@@ -230,7 +230,7 @@ export function HeroSlider() {
 
   return (
     <div
-      className="relative w-full min-h-0 lg:h-[calc(100vh-8.5rem)] flex flex-col justify-between overflow-hidden bg-gradient-to-b from-white via-zinc-50 to-zinc-100/90 text-zinc-900 select-none border-b border-zinc-200"
+      className="relative w-full overflow-hidden bg-gradient-to-b from-white via-zinc-50 to-zinc-100/90 text-zinc-900 select-none border-b border-zinc-200"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
@@ -246,11 +246,11 @@ export function HeroSlider() {
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-zinc-50/85" />
       </div>
 
-      {/* Main Content Container scaled with vh on desktop, fluid on mobile */}
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between px-4 py-6 sm:py-8 lg:py-[3.5vh] sm:px-6 lg:px-8">
-        <div className="my-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+      {/* Main Content Container: Clean fluid layout for all devices */}
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col justify-between px-4 py-8 sm:py-10 lg:py-12 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Left Column: Clean Category Badge, Headline & Direct CTAs */}
-          <div className="lg:col-span-7 space-y-4 lg:space-y-[2.4vh]">
+          <div className="lg:col-span-7 space-y-4 sm:space-y-5">
             <div className="inline-flex max-w-full items-center overflow-hidden rounded-lg shadow-xs">
               <span className="bg-orange-600 px-2.5 sm:px-3.5 py-1 sm:py-1.5 font-display text-[10px] sm:text-xs md:text-sm font-bold tracking-wider text-white uppercase whitespace-nowrap">
                 {slide.ribbonText}
@@ -366,7 +366,7 @@ export function HeroSlider() {
         </div>
 
         {/* Bottom Slider Navigation Bar */}
-        <div className="mt-4 lg:mt-[2vh] pt-3 lg:pt-[1.5vh] border-t border-zinc-200/80 flex items-center justify-between gap-4">
+        <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-zinc-200/80 flex items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             {SLIDES.map((s, idx) => {
               const active = idx === current;

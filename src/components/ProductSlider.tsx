@@ -39,7 +39,9 @@ function pickRandomNine(list: SliderMachineItem[]): SliderMachineItem[] {
 }
 
 export function ProductSlider({ machines }: Props) {
-  const [featuredNine, setFeaturedNine] = useState<SliderMachineItem[]>([]);
+  const [featuredNine, setFeaturedNine] = useState<SliderMachineItem[]>(() =>
+    pickRandomNine(machines)
+  );
 
   useEffect(() => {
     setFeaturedNine(pickRandomNine(machines));
