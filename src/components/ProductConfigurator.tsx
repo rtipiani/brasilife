@@ -17,6 +17,7 @@ interface QuickAddProps {
   category: string;
   imageUrl?: string;
   showColorDots?: boolean;
+  className?: string;
 }
 
 export function QuickAddToQuoteButton({
@@ -26,6 +27,7 @@ export function QuickAddToQuoteButton({
   name,
   category,
   imageUrl,
+  className = '',
 }: QuickAddProps) {
   const [added, setAdded] = useState(false);
   const [qtyInQuote, setQtyInQuote] = useState(0);
@@ -63,13 +65,13 @@ export function QuickAddToQuoteButton({
     <button
       type="button"
       onClick={handleAdd}
-      className={`inline-flex items-center justify-center gap-1.5 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition cursor-pointer shadow-xs ${
+      className={`w-full sm:w-auto inline-flex items-center justify-center gap-1.5 rounded-full px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold transition cursor-pointer shadow-xs ${
         added
           ? 'bg-emerald-600 text-white'
           : qtyInQuote > 0
             ? 'bg-zinc-900 text-white hover:bg-orange-600'
             : 'bg-orange-600 text-white hover:bg-orange-500'
-      }`}
+      } ${className}`}
     >
       {added ? (
         <>

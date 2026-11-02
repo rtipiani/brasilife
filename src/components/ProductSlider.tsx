@@ -98,10 +98,10 @@ export function ProductSlider({ machines }: Props) {
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-zinc-100 flex items-center justify-between gap-2.5 relative z-20">
+              <div className="mt-4 pt-3 border-t border-zinc-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 sm:gap-2.5 relative z-20">
                 <a
                   href={`/catalogo/${machine.slug}`}
-                  className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2.5 text-xs sm:text-sm font-semibold text-zinc-800 hover:border-orange-500 hover:text-orange-600 transition"
+                  className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-zinc-800 hover:border-orange-500 hover:text-orange-600 transition text-center"
                 >
                   Ver Ficha →
                 </a>
