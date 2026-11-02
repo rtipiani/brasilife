@@ -38,15 +38,18 @@ export function HeaderSearch() {
   const handleChange = (val: string) => {
     setQuery(val);
     setIsOpen(val.trim().length > 0);
-    if (typeof window !== 'undefined' && window.location.pathname.startsWith('/catalogo')) {
-      const url = new URL(window.location.href);
-      if (val.trim()) {
-        url.searchParams.set('q', val);
-      } else {
-        url.searchParams.delete('q');
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('brasilife:search-sync', { detail: val }));
+      if (window.location.pathname.startsWith('/catalogo')) {
+        const url = new URL(window.location.href);
+        if (val.trim()) {
+          url.searchParams.set('q', val);
+        } else {
+          url.searchParams.delete('q');
+        }
+        window.history.replaceState({}, '', url.toString());
+        window.dispatchEvent(new CustomEvent(HEADER_SEARCH_EVENT, { detail: val }));
       }
-      window.history.replaceState({}, '', url.toString());
-      window.dispatchEvent(new CustomEvent(HEADER_SEARCH_EVENT, { detail: val }));
     }
   };
 

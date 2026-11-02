@@ -75,12 +75,11 @@ export function QuoteHeaderTrigger() {
     <button
       type="button"
       onClick={() => window.dispatchEvent(new CustomEvent(QUOTE_DRAWER_OPEN_EVENT))}
-      className="relative inline-flex items-center gap-2 rounded-full bg-zinc-900 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-semibold text-white shadow-xs ring-1 ring-orange-500/40 transition hover:bg-orange-600 focus:outline-none cursor-pointer"
+      className="relative inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-zinc-900 px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold text-white shadow-xs ring-1 ring-orange-500/40 transition hover:bg-orange-600 focus:outline-none cursor-pointer shrink-0"
       aria-label="Abrir lista de cotización"
     >
       <ClipboardList className="h-4 w-4 text-orange-400 shrink-0" />
       <span className="hidden sm:inline">Mi Cotización</span>
-      <span className="sm:hidden">Cotizar</span>
       <span
         className={`inline-flex h-5 min-w-5 items-center justify-center rounded-full px-1.5 text-[11px] font-bold transition ${
           totalUnits > 0
