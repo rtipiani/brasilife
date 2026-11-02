@@ -96,6 +96,10 @@ interface DetailConfiguratorProps {
   slug: string;
   name: string;
   category: string;
+  titleLine1?: string;
+  titleLine2?: string;
+  categoryName?: string;
+  muscleGroups?: string[];
   imageType: string;
   imageUrl?: string;
   fullDescription?: string;
